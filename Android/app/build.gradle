@@ -9,6 +9,13 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "int", "LIMIT", "100"
+        buildConfigField "String", "LANG", "\"&language=es-ES\""
+        buildConfigField "String", "BASEURL", "\"https://api.themoviedb.org/3/movie/\""
+        buildConfigField "String", "KEYAPI", "\"3b2c20f8313d1eeeac3a6b4cdca5bfb7\""
+        buildConfigField "String", "TOKENAPP", "\"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzYjJjMjBmODMxM2QxZWVlYWMzYTZiNGNkY2E1YmZiNyIsInN1YiI6IjU4YWM4NzgxYzNhMzY4NDliMDAxNDE2YyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.WY9nxHPs86Hkt4uQ2SImrOZPucxahys8XtzMG56kEW4\""
+        buildConfigField "int", "CACHETIME", "432000" // 5days
     }
     buildTypes {
         release {

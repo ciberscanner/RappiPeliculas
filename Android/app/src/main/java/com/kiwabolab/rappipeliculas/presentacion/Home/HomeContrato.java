@@ -15,7 +15,7 @@ public interface HomeContrato {
         void getGenerosError();
         void getGenerosProblema();
 
-        void getPeliculas();
+        void getPeliculas(String categoria, int page);
         void getPeliculasOk(ListaPeliculas peliculas);
         void getPeliculasError();
         void getPeliculasProblema();
@@ -31,7 +31,7 @@ public interface HomeContrato {
         void getGenerosError();
         void getGenerosProblema();
 
-        void getPeliculas();
+        void getPeliculas(String categoria, int page);
         void getPeliculasOk(ListaPeliculas peliculas);
         void getPeliculasError();
         void getPeliculasProblema();
@@ -40,6 +40,6 @@ public interface HomeContrato {
     //Interactor
     interface InteractorHome{
         void getGeneros();
-        void getPeliculas();
+        void getPeliculas(String categoria, int page);
     }
 }

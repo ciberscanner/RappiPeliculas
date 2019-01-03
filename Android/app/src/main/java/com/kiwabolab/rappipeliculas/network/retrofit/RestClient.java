@@ -10,25 +10,25 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
+
+import static com.kiwabolab.rappipeliculas.BuildConfig.KEYAPI;
+import static com.kiwabolab.rappipeliculas.BuildConfig.LANG;
 
 public interface RestClient {
-    //----------------------------------------------------------------------------------------------
-    //Variables
-    String keyAPI ="3b2c20f8313d1eeeac3a6b4cdca5bfb7";
-    String LANG = "&language=es-ES";
     //----------------------------------------------------------------------------------------------
     //request_token
     @FormUrlEncoded
     @POST("auth/request_token")
     Call<Token> requestToken();
     //----------------------------------------------------------------------------------------------
-    //obtener lista de peliculas
-    @GET("movie/{val}?api_key="+keyAPI+LANG)
-    Call<ListaPeliculas> getPeliculas(@Path("val") String taskId);
-    //----------------------------------------------------------------------------------------------
     //Obtener lista de generos
-    @GET("genre/movie/list?api_key="+keyAPI+LANG)
+    @GET("genre/movie/list?api_key="+KEYAPI+LANG)
     Call<ListaGeneros> getGeneros();
+    //----------------------------------------------------------------------------------------------
+    //obtener lista de peliculas
+    @GET("movie/{val}")
+    Call<ListaPeliculas> getPeliculas(@Path("val") String taskId, @Query("api_key") String key, @Query("language") String lang, @Query("page") int page);
     //----------------------------------------------------------------------------------------------
     //
 }

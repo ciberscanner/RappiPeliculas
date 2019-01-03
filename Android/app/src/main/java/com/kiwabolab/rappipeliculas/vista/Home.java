@@ -22,6 +22,7 @@ public class Home extends AppCompatActivity implements HomeContrato.VistaHome {
         this.presenter = new HomePresenter(this);
 
         getGeneros();
+        getPeliculas("top_rated",1);
     }
     //----------------------------------------------------------------------------------------------
     //
@@ -56,8 +57,8 @@ public class Home extends AppCompatActivity implements HomeContrato.VistaHome {
     }
 
     @Override
-    public void getPeliculas() {
-
+    public void getPeliculas(String categoria, int page) {
+        presenter.getPeliculas(categoria, page);
     }
 
     @Override

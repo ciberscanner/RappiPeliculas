@@ -47,8 +47,8 @@ public class HomePresenter implements HomeContrato.PresentadorHome {
     }
 
     @Override
-    public void getPeliculas() {
-
+    public void getPeliculas(String categoria, int page) {
+        interactor.getPeliculas(categoria, page);
     }
 
     @Override

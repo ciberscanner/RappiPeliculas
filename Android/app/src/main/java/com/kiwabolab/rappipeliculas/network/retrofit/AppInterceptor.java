@@ -14,6 +14,8 @@ import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
 
+import static com.kiwabolab.rappipeliculas.BuildConfig.TOKENAPP;
+
 public class AppInterceptor implements Interceptor {
     //----------------------------------------------------------------------------------------------
     //Constructor
@@ -43,7 +45,7 @@ public class AppInterceptor implements Interceptor {
     public Response intercept(Chain chain) throws IOException {
         Request request = chain.request();
         Request.Builder builder = request.newBuilder();
-        builder.addHeader("Authorization", "Bearer {eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzYjJjMjBmODMxM2QxZWVlYWMzYTZiNGNkY2E1YmZiNyIsInN1YiI6IjU4YWM4NzgxYzNhMzY4NDliMDAxNDE2YyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.WY9nxHPs86Hkt4uQ2SImrOZPucxahys8XtzMG56kEW4}");
+        builder.addHeader("Authorization", TOKENAPP);
         builder.addHeader("Content-Type", "application/json;charset=utf-8");
         if(request.body() != null){
             Log.v("BODY",request.body().toString());
