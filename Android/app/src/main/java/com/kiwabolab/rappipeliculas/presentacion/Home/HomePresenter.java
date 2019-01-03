@@ -1,43 +1,34 @@
-package com.kiwabolab.rappipeliculas.vista;
+package com.kiwabolab.rappipeliculas.presentacion.Home;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-
-import com.kiwabolab.rappipeliculas.R;
 import com.kiwabolab.rappipeliculas.modelo.ListaGeneros;
 import com.kiwabolab.rappipeliculas.modelo.ListaPeliculas;
-import com.kiwabolab.rappipeliculas.presentacion.Home.HomeContrato;
-import com.kiwabolab.rappipeliculas.presentacion.Home.HomePresenter;
 
-public class Home extends AppCompatActivity implements HomeContrato.VistaHome {
+public class HomePresenter implements HomeContrato.PresentadorHome {
     //----------------------------------------------------------------------------------------------
     //Variables
-    private HomePresenter presenter;
+    HomeContrato.VistaHome vista;
+    HomeContrato.InteractorHome interactor;
     //----------------------------------------------------------------------------------------------
     //Constructor
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
-        this.presenter = new HomePresenter(this);
-
-        getGeneros();
+    public HomePresenter(HomeContrato.VistaHome vista) {
+        this.vista = vista;
+        this.interactor = new HomeInteractor(this);
     }
     //----------------------------------------------------------------------------------------------
     //
     @Override
     public void showLoading() {
-
+        vista.showLoading();
     }
 
     @Override
     public void closeLoading() {
-
+        vista.closeLoading();
     }
 
     @Override
     public void getGeneros() {
-        presenter.getGeneros();
+        interactor.getGeneros();
     }
 
     @Override
