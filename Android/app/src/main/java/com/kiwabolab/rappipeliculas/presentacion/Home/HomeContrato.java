@@ -1,6 +1,7 @@
-package com.kiwabolab.rappipeliculas.presentacion.Home;
+package com.kiwabolab.rappipeliculas.presentacion.home;
 
-import com.kiwabolab.rappipeliculas.modelo.ListaGeneros;
+import android.content.Context;
+
 import com.kiwabolab.rappipeliculas.modelo.ListaPeliculas;
 
 public interface HomeContrato {
@@ -10,15 +11,15 @@ public interface HomeContrato {
         void showLoading();
         void closeLoading();
 
-        void getGeneros();
-        void getGenerosOk(ListaGeneros generos);
-        void getGenerosError();
-        void getGenerosProblema();
-
-        void getPeliculas(String categoria, int page);
+        void getPeliculas(String categoria, int page, Context context);
         void getPeliculasOk(ListaPeliculas peliculas);
         void getPeliculasError();
         void getPeliculasProblema();
+
+        void getFiltradas(String nombre, Context context);
+        void getFiltradasOk(ListaPeliculas peliculas);
+        void getFiltradasError();
+        void getFiltradasProblema();
     }
     //----------------------------------------------------------------------------------------------
     //Presentador
@@ -26,20 +27,20 @@ public interface HomeContrato {
         void showLoading();
         void closeLoading();
 
-        void getGeneros();
-        void getGenerosOk(ListaGeneros generos);
-        void getGenerosError();
-        void getGenerosProblema();
-
-        void getPeliculas(String categoria, int page);
+        void getPeliculas(String categoria, int page, Context context);
         void getPeliculasOk(ListaPeliculas peliculas);
         void getPeliculasError();
         void getPeliculasProblema();
+
+        void getFiltradas(String nombre, Context context);
+        void getFiltradasOk(ListaPeliculas peliculas);
+        void getFiltradasError();
+        void getFiltradasProblema();
     }
     //----------------------------------------------------------------------------------------------
     //Interactor
     interface InteractorHome{
-        void getGeneros();
-        void getPeliculas(String categoria, int page);
+        void getPeliculas(String categoria, int page, Context context);
+        void getFiltradas(String nombre, Context context);
     }
 }

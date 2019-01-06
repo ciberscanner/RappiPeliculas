@@ -1,6 +1,7 @@
-package com.kiwabolab.rappipeliculas.presentacion.Home;
+package com.kiwabolab.rappipeliculas.presentacion.home;
 
-import com.kiwabolab.rappipeliculas.modelo.ListaGeneros;
+import android.content.Context;
+
 import com.kiwabolab.rappipeliculas.modelo.ListaPeliculas;
 
 public class HomePresenter implements HomeContrato.PresentadorHome {
@@ -25,35 +26,18 @@ public class HomePresenter implements HomeContrato.PresentadorHome {
     public void closeLoading() {
         vista.closeLoading();
     }
-
+    //----------------------------------------------------------------------------------------------
+    //
     @Override
-    public void getGeneros() {
-        interactor.getGeneros();
-    }
-
-    @Override
-    public void getGenerosOk(ListaGeneros generos) {
-
-    }
-
-    @Override
-    public void getGenerosError() {
-
-    }
-
-    @Override
-    public void getGenerosProblema() {
-
-    }
-
-    @Override
-    public void getPeliculas(String categoria, int page) {
-        interactor.getPeliculas(categoria, page);
+    public void getPeliculas(String categoria, int page, Context context) {
+        showLoading();
+        interactor.getPeliculas(categoria, page, context);
     }
 
     @Override
     public void getPeliculasOk(ListaPeliculas peliculas) {
-
+        vista.getPeliculasOk(peliculas);
+        closeLoading();
     }
 
     @Override
@@ -63,6 +47,27 @@ public class HomePresenter implements HomeContrato.PresentadorHome {
 
     @Override
     public void getPeliculasProblema() {
+
+    }
+    //----------------------------------------------------------------------------------------------
+    //
+    @Override
+    public void getFiltradas(String nombre, Context context) {
+        interactor.getFiltradas(nombre,context);
+    }
+
+    @Override
+    public void getFiltradasOk(ListaPeliculas peliculas) {
+        vista.getFiltradasOk(peliculas);
+    }
+
+    @Override
+    public void getFiltradasError() {
+
+    }
+
+    @Override
+    public void getFiltradasProblema() {
 
     }
 }

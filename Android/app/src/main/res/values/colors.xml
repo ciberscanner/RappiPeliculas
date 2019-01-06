@@ -2,5 +2,16 @@
 <resources>
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorAccent">#91DC5A</color>
+
+
+    <color name="cloud">#ecf0f1</color>
+    <color name="white">#ffffff</color>
+    <color name="bgblack">#33000000</color>
+    <color name="colorGris2">#7f8c8d</color>
+
+
+    <color name="background">#EFEFEF</color>
+    <color name="placeholder_grey">#AAADC4</color>
+    <color name="placeholder_grey_20">#33AAADC4</color>
 </resources>
